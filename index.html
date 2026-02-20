@@ -22,7 +22,7 @@
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             width: 100%;
             background: white;
             border-radius: 15px;
@@ -34,12 +34,18 @@
             position: relative;
             width: 100%;
             background: #000;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
         }
         
-        video {
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
-            height: auto;
-            display: block;
+            height: 100%;
+            border: none;
         }
         
         .content {
@@ -70,25 +76,29 @@
 <body>
     <div class="container">
         <div class="video-wrapper">
-            <!-- Replace VIDEO_URL with your actual video URL -->
-            <video autoplay muted loop controls>
-                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            <!-- Vimeo Video with Autoplay -->
+            <iframe 
+                src="https://player.vimeo.com/video/1164926384?h=&autoplay=1&loop=1" 
+                width="1000" 
+                height="563" 
+                frameborder="0" 
+                allow="autoplay; fullscreen; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
         </div>
         
         <div class="content">
-            <h1>Welcome to Our Video Player</h1>
-            <p>This video player automatically starts playing when the page loads. It's muted by default to comply with browser autoplay policies and will loop continuously.</p>
+            <h1>Welcome to Our Video</h1>
+            <p>This Vimeo video automatically starts playing when the page loads and loops continuously.</p>
             
             <div class="info-box">
                 <strong>🎥 Features:</strong>
                 <ul style="margin-top: 10px; margin-left: 20px;">
-                    <li>Autoplay enabled</li>
-                    <li>Muted by default (browser requirement)</li>
-                    <li>Looping video</li>
-                    <li>Full controls for user interaction</li>
-                    <li>Responsive design</li>
+                    <li>✓ Autoplay enabled</li>
+                    <li>✓ Looping video</li>
+                    <li>✓ Full Vimeo player controls</li>
+                    <li>✓ HD quality video</li>
+                    <li>✓ Responsive design</li>
                 </ul>
             </div>
         </div>

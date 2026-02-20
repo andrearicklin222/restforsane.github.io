@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Player - Auto Play</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 100%;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            background: #000;
+        }
+        
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .content {
+            padding: 30px;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 15px;
+            font-size: 28px;
+        }
+        
+        p {
+            color: #666;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        .info-box {
+            background: #f0f4ff;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="video-wrapper">
+            <!-- Replace VIDEO_URL with your actual video URL -->
+            <video autoplay muted loop controls>
+                <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+        
+        <div class="content">
+            <h1>Welcome to Our Video Player</h1>
+            <p>This video player automatically starts playing when the page loads. It's muted by default to comply with browser autoplay policies and will loop continuously.</p>
+            
+            <div class="info-box">
+                <strong>🎥 Features:</strong>
+                <ul style="margin-top: 10px; margin-left: 20px;">
+                    <li>Autoplay enabled</li>
+                    <li>Muted by default (browser requirement)</li>
+                    <li>Looping video</li>
+                    <li>Full controls for user interaction</li>
+                    <li>Responsive design</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -23,16 +23,55 @@
     max-width: 100vw;
     height: auto;
     width: auto;
+    background: black;
+  }
+
+  .overlay {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #7CFF7C;
+    font-family: system-ui, -apple-system, sans-serif;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+    background: rgba(0,0,0,0.0);
+    cursor: pointer;
+  }
+
+  .overlay.hidden {
+    display: none;
   }
 </style>
 </head>
 
 <body>
 
-<video autoplay playsinline>
+<video id="video" autoplay muted playsinline loop>
   <source src="NFC_Video_quer_voice.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
+
+<div id="overlay" class="overlay">
+  Tap to enable sound
+</div>
+
+<script>
+  const video = document.getElementById("video");
+  const overlay = document.getElementById("overlay");
+
+  overlay.addEventListener("click", () => {
+    video.muted = false;
+    video.play();
+    overlay.classList.add("hidden");
+  });
+
+  // Falls Safari Autoplay verzögert
+  video.addEventListener("canplay", () => {
+    video.play().catch(()=>{});
+  });
+</script>
 
 </body>
 </html>

@@ -26,22 +26,16 @@
     background: black;
   }
 
-  .overlay {
+  .status {
     position: fixed;
-    inset: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     color: #7CFF7C;
     font-family: system-ui, -apple-system, sans-serif;
-    font-size: 16px;
-    letter-spacing: 0.5px;
-    background: rgba(0,0,0,0.0);
-    cursor: pointer;
-  }
-
-  .overlay.hidden {
-    display: none;
+    font-size: 12px;
+    opacity: 0.7;
+    pointer-events: none;
   }
 </style>
 </head>
@@ -53,23 +47,26 @@
   Your browser does not support the video tag.
 </video>
 
-<div id="overlay" class="overlay">
-  Tap to enable sound
-</div>
+<div id="status" class="status">Sound: OFF</div>
 
 <script>
   const video = document.getElementById("video");
-  const overlay = document.getElementById("overlay");
+  const status = document.getElementById("status");
 
-  overlay.addEventListener("click", () => {
-    video.muted = false;
-    video.play();
-    overlay.classList.add("hidden");
-  });
-
-  // Falls Safari Autoplay verzögert
+  // Sicherstellen, dass Autoplay startet
   video.addEventListener("canplay", () => {
     video.play().catch(()=>{});
+  });
+
+  // Toggle Sound bei jedem Tap irgendwo
+  document.addEventListener("click", () => {
+    video.muted = !video.muted;
+
+    if (video.muted) {
+      status.textContent = "Sound: OFF";
+    } else {
+      status.textContent = "Sound: ON";
+    }
   });
 </script>
 
